@@ -1,6 +1,35 @@
 {
-    "version": 0,
+    "version": 1,
     "name": "PlayerMov",
-    "maps": [],
+    "maps": [
+        {
+            "name": "GamePlay",
+            "id": "e5f65cb7-738c-451f-b4f0-9280424f1bfb",
+            "actions": [
+                {
+                    "name": "Mov",
+                    "type": "Value",
+                    "id": "3a3980a2-4b56-4ec0-9692-d5c87555eb11",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "50803df3-a1db-42d6-a23b-136430ba951c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mov",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
     "controlSchemes": []
 }
