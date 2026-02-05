@@ -12,15 +12,18 @@ public class PlayerMov : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        // Obtém o componente CharacterController anexado ao GameObject
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector3>();
+        // moveInput atribui o valor do input lido do jogador
     }
 
     private void Update()
     {
+        // Movementação do jogador com base no input recebido
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
         controller.Move(move * Time.deltaTime * speed);
     }
