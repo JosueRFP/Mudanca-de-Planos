@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMov : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float life = 3f;
     CharacterController controller;
     Vector3 moveInput;
     Animator animator;
@@ -25,6 +26,7 @@ public class PlayerMov : MonoBehaviour
 
     private void Update()
     {
+        OnLifeEnd();
         // Movementação do jogador com base no input recebido
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
         controller.Move(move * Time.deltaTime * speed);
@@ -33,5 +35,14 @@ public class PlayerMov : MonoBehaviour
             animator.SetBool("IsRunning", false);
         else
             animator.SetBool("IsRunning",  true);
+    }
+
+
+    void OnLifeEnd()
+    {
+        if(life == 0)
+        {
+            Destroy(gameObject);
+        }            
     }
 }
