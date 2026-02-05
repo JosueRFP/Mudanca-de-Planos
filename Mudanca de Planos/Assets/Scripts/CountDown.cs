@@ -36,16 +36,12 @@ public class CountDown : MonoBehaviour
                 OnTimerEnd();
             }
 
-            if (timeRemaining == 91)
-            {
-                OnAlarmOn.Invoke();
-                print("toca");
-            }
+            
             if (timeRemaining <= 91)
             {
                 countdownText.color = Color.red;
             }
-            countdownText.text = timerSpan.ToString(@"mm/ss");
+            countdownText.text = timerSpan.ToString(@"mm\:ss");
         }
     }
 

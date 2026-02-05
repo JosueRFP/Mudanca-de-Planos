@@ -407,7 +407,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -810,13 +810,13 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.16293012
-      value: 0.45062256
-      inSlope: -31.26254
-      outSlope: -31.26254
+      time: 0.10189496
+      value: 0
+      inSlope: -1.6123165
+      outSlope: -1.6123165
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.0808706
       outWeight: 0
     - serializedVersion: 3
       time: 0.256
@@ -828,17 +828,17 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.37213302
-      value: 0.5621643
-      inSlope: -0.1221193
-      outSlope: -0.1221193
+      time: 0.40030074
+      value: 0
+      inSlope: 0.090792194
+      outSlope: 0.090792194
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 1
     - serializedVersion: 3
-      time: 0.7608251
-      value: 0.052337646
+      time: 0.5730352
+      value: 0.017745972
       inSlope: -0.0076324563
       outSlope: -0.0076324563
       tangentMode: 0
@@ -1596,13 +1596,13 @@ MonoBehaviour:
   OnAlarmOn:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 587704150}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 8300000, guid: 11ff97f18f9a6394fb4a0cc7c7c12130, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
