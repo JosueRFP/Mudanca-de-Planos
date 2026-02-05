@@ -8,11 +8,13 @@ public class PlayerMov : MonoBehaviour
     [SerializeField] private float speed = 5f;
     CharacterController controller;
     Vector3 moveInput;
+    Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        controller = GetComponent<CharacterController>();
-        // Obtém o componente CharacterController anexado ao GameObject
+        controller = GetComponent<CharacterController>(); // Obtém o componente CharacterController anexado ao GameObject
+        animator = GetComponentInChildren<Animator>();
+        
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
@@ -26,5 +28,10 @@ public class PlayerMov : MonoBehaviour
         // Movementação do jogador com base no input recebido
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
         controller.Move(move * Time.deltaTime * speed);
+
+        if (move == Vector3.zero)
+            animator.SetBool("IsRunning", false);
+        else
+            animator.SetBool("IsRunning",  true);
     }
 }
