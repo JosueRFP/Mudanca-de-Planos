@@ -1,47 +1,27 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMov : MonoBehaviour
 {
-    [Header("PlayerSettings")]
-    [SerializeField] private int playerID;
     [SerializeField] private float speed = 5f;
-
-    Rigidbody rb;
+    CharacterController controller;
     Vector3 moveInput;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnMoveInput(InputAction.CallbackContext context)
     {
-        ReadInput();
+        moveInput = context.ReadValue<Vector3>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        rb.linearVelocity = new Vector3(moveInput.x, rb.linearVelocity.y, moveInput.z);
-    }
-
-    void ReadInput()
-    {
-        float h = 0;
-        float v = 0;
-
-        if (playerID == 1)
-        {
-            h = Input.GetAxisRaw("Horizontal");
-            v = Input.GetAxisRaw("Vertical"); 
-            
-        }
-
-       else if (playerID == 2)
-       {
-            
-       }
-
-        moveInput = new Vector3(h, 0, v) * speed;
+        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
+        controller.Move(move * Time.deltaTime * speed);
     }
 }
