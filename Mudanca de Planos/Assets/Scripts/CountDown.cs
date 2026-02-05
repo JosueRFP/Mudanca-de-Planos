@@ -1,12 +1,14 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CountDown : MonoBehaviour
 {
     public static float timeRemaining = 301;  // Tempo inicial em segundos
     TimeSpan timerSpan = TimeSpan.FromSeconds(timeRemaining);
     [SerializeField] TextMeshProUGUI countdownText;  // Referência ao TextMeshPro
+    [SerializeField] UnityEvent OnAlarmOn;
 
     private bool timerIsRunning = false;
 
@@ -34,12 +36,16 @@ public class CountDown : MonoBehaviour
                 OnTimerEnd();
             }
 
-            if(timeRemaining <= 91)
+            if (timeRemaining == 91)
+            {
+                OnAlarmOn.Invoke();
+                print("toca");
+            }
+            if (timeRemaining <= 91)
             {
                 countdownText.color = Color.red;
-
             }
-            countdownText.text = timerSpan.ToString(@"mm\:ss");
+            countdownText.text = timerSpan.ToString(@"mm/ss");
         }
     }
 

@@ -32,9 +32,9 @@ public class PlayerMov : MonoBehaviour
         controller.Move(move * Time.deltaTime * speed);
 
         if (move == Vector3.zero)
-            animator.SetBool("IsRunning", false);
+            animator.SetBool("IsRunnig", false);
         else
-            animator.SetBool("IsRunning",  true);
+            animator.SetBool("IsRunnig",  true);
     }
 
 
