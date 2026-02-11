@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 
 public enum AbilityMageType
@@ -37,14 +38,20 @@ public class PlayerAbility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if(playerId == 1)
+        {
+            SetMageAbility(AbilityMageType.Fireball);
+            SetMageAbility(AbilityMageType.HellingWave);
+        }else if(playerId == 2)
+        {
+            SetShilderAbility(AbilityShilderType.ShieldBlock);
+            SetShilderAbility(AbilityShilderType.EarthQuake);
+        }
 
-    IEnumerator CooldownMageAbility(AbilityMageType modeMage)
-    {
-        yield return new WaitForSeconds(abilityMageCoolDown);
-    }
 
+                
+    }   
+    
     public void SetMageAbility(AbilityMageType modeMage)
     {
         switch (modeMage) 
@@ -63,5 +70,30 @@ public class PlayerAbility : MonoBehaviour
             break;
 
         }
+    }
+
+
+    IEnumerator CooldownMageAbility(AbilityMageType modeMage)
+    {
+        yield return new WaitForSeconds(abilityMageCoolDown);
+    }
+    public void SetShilderAbility(AbilityShilderType modeShilder)
+    {
+        switch (modeShilder)
+        {
+            case AbilityShilderType.ShieldBlock:    
+                StartCoroutine(ShilderCooldown(modeShilder));
+            break;
+            case AbilityShilderType.EarthQuake:
+                StartCoroutine(ShilderCooldown(modeShilder));
+            break;
+            case AbilityShilderType.None:
+            break;
+        }
+    }
+
+    IEnumerator ShilderCooldown(AbilityShilderType modeShilder)
+    {
+        yield return new WaitForSeconds(abilityShilderCoolDown);
     }
 }
