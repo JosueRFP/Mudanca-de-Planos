@@ -7,15 +7,13 @@ using System;
 public enum AbilityMageType
 {
     None,
-    Fireball,
-    HellingWave
+    Fireball
 }
 
 public enum AbilityShilderType
 {
     None,
-    ShieldBlock,
-    EarthQuake
+    ShieldBlock
 }
 public class PlayerAbility : MonoBehaviour
 {
@@ -70,12 +68,6 @@ public class PlayerAbility : MonoBehaviour
                 Instantiate(fireBallPrefab, magicPosition);
                 abilityMageCoolDown -= Time.deltaTime;
                 break;
-            
-            case AbilityMageType.HellingWave:
-                abilityMageCoolDown -= Time.deltaTime;
-
-                break;
-
             case AbilityMageType.None:
             break;
 
@@ -92,10 +84,7 @@ public class PlayerAbility : MonoBehaviour
                 Instantiate(shieldPrefab, shilderPosition);
                 abilityShilderCoolDown -= Time.deltaTime;
             break;
-            case AbilityShilderType.EarthQuake:
-                abilityShilderCoolDown -= Time.deltaTime;
-                break;
-            case AbilityShilderType.None:
+           case AbilityShilderType.None:
             break;
         }
 
