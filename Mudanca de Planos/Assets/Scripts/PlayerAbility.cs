@@ -28,6 +28,7 @@ public class PlayerAbility : MonoBehaviour
 
     [Header("Shilder")]
     [SerializeField] float abilityShilderCoolDown;
+    [SerializeField] GameObject shieldPrefab;
     AbilityShilderType shilderAbility;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,6 +83,7 @@ public class PlayerAbility : MonoBehaviour
         switch (modeShilder)
         {
             case AbilityShilderType.ShieldBlock:    
+                Instantiate(shieldPrefab);
                 StartCoroutine(ShilderCooldown(modeShilder));
             break;
             case AbilityShilderType.EarthQuake:
