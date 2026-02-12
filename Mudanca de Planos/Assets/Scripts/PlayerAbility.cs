@@ -49,7 +49,7 @@ public class PlayerAbility : MonoBehaviour
         if (Input.GetAxisRaw("Fire1") != 0)
         {
             SetMageAbility(AbilityMageType.Fireball);
-            abilityMageCoolDown -= Time.deltaTime;
+            abilityMageCoolDown -= Time.deltaTime;  
         }
     }
 
