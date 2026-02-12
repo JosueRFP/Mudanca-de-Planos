@@ -19,16 +19,17 @@ public enum AbilityShilderType
 }
 public class PlayerAbility : MonoBehaviour
 {
-    [SerializeField] int playerId;
     [Header("Mage")]
     [SerializeField] float abilityMageCoolDown;
     [SerializeField] GameObject fireBallPrefab;
+    [SerializeField] Transform magicPosition;
     AbilityMageType mageAbility;
 
 
     [Header("Shilder")]
     [SerializeField] float abilityShilderCoolDown;
     [SerializeField] GameObject shieldPrefab;
+    [SerializeField] Transform shilderPosition;
     AbilityShilderType shilderAbility;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,33 +40,41 @@ public class PlayerAbility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerId == 1)
+        MageCharacter();
+        ShilderCharacter();
+    }
+
+    public void MageCharacter()
+    {
+        if (Input.GetAxisRaw("Fire1") != 0)
         {
             SetMageAbility(AbilityMageType.Fireball);
-            SetMageAbility(AbilityMageType.HellingWave);
-        }else if(playerId == 2)
+            abilityMageCoolDown -= Time.deltaTime;
+        }
+    }
+
+    public void ShilderCharacter()
+    {
+        if (Input.GetAxisRaw("Fire2") != 0)
         {
             SetShilderAbility(AbilityShilderType.ShieldBlock);
-            SetShilderAbility(AbilityShilderType.EarthQuake);
+            
         }
+    }
 
-
-                
-    }   
-    
     public void SetMageAbility(AbilityMageType modeMage)
     {
         switch (modeMage) 
         {
             case AbilityMageType.Fireball:
-                Instantiate(fireBallPrefab);
-                StartCoroutine(CooldownMageAbility(modeMage));
-            break;
+                Instantiate(fireBallPrefab, magicPosition);
+                abilityMageCoolDown -= Time.deltaTime;
+                break;
             
             case AbilityMageType.HellingWave:
-                
-                StartCoroutine(CooldownMageAbility(modeMage));
-            break;
+                abilityMageCoolDown -= Time.deltaTime;
+
+                break;
 
             case AbilityMageType.None:
             break;
@@ -74,28 +83,26 @@ public class PlayerAbility : MonoBehaviour
     }
 
 
-    IEnumerator CooldownMageAbility(AbilityMageType modeMage)
-    {
-        yield return new WaitForSeconds(abilityMageCoolDown);
-    }
+    
     public void SetShilderAbility(AbilityShilderType modeShilder)
     {
         switch (modeShilder)
         {
             case AbilityShilderType.ShieldBlock:    
-                Instantiate(shieldPrefab);
-                StartCoroutine(ShilderCooldown(modeShilder));
+                Instantiate(shieldPrefab, shilderPosition);
+                abilityShilderCoolDown -= Time.deltaTime;
             break;
             case AbilityShilderType.EarthQuake:
-                StartCoroutine(ShilderCooldown(modeShilder));
-            break;
+                abilityShilderCoolDown -= Time.deltaTime;
+                break;
             case AbilityShilderType.None:
             break;
         }
+
+        
     }
 
-    IEnumerator ShilderCooldown(AbilityShilderType modeShilder)
-    {
-        yield return new WaitForSeconds(abilityShilderCoolDown);
-    }
+    
+
+    
 }

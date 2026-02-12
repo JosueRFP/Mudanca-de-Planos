@@ -694,6 +694,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5005677153021145634, guid: bc2b234c7b4d76d49a003bb63879f1c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 683015282}
+    - targetCorrespondingSourceObject: {fileID: 5005677153021145634, guid: bc2b234c7b4d76d49a003bb63879f1c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 813875302}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5005677153021145635, guid: bc2b234c7b4d76d49a003bb63879f1c5, type: 3}
       insertIndex: -1
@@ -870,11 +873,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98b087e9cdcdf249bd4ea7e17ead023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbility
-  playerId: 2
   abilityMageCoolDown: 0
   fireBallPrefab: {fileID: 0}
+  magicPosition: {fileID: 0}
   abilityShilderCoolDown: 5
   shieldPrefab: {fileID: 6424583148328831481, guid: d2ffbc8b168cdf74a9dbb7c6c1cfdf2f, type: 3}
+  shilderPosition: {fileID: 813875302}
 --- !u!1 &587704149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,12 +1318,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744631612}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.80082, y: 16.20909, z: 130.6744}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4289999, y: 1.7350001, z: 0.72300005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1681164095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &813875301
 GameObject:
@@ -1345,12 +1349,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813875301}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.80082, y: 16.20909, z: 130.6744}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.048999786, y: 0.748, z: -0.13999987}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 427408822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
@@ -1539,6 +1543,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5005677153021145634, guid: bc2b234c7b4d76d49a003bb63879f1c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1988182894}
+    - targetCorrespondingSourceObject: {fileID: 5005677153021145634, guid: bc2b234c7b4d76d49a003bb63879f1c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 744631613}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5005677153021145635, guid: bc2b234c7b4d76d49a003bb63879f1c5, type: 3}
       insertIndex: -1
@@ -1710,11 +1717,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98b087e9cdcdf249bd4ea7e17ead023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbility
-  playerId: 1
   abilityMageCoolDown: 2
-  fireBallPrefab: {fileID: 2016757618006819729, guid: cd0b783a1ebe1ec4997b9305285f5fec, type: 3}
+  fireBallPrefab: {fileID: 5099431166652583641, guid: 8c51410e4f579f34f84ac8580fc8ece9, type: 3}
+  magicPosition: {fileID: 744631613}
   abilityShilderCoolDown: 0
   shieldPrefab: {fileID: 0}
+  shilderPosition: {fileID: 0}
 --- !u!4 &1681164095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5005677153021145634, guid: bc2b234c7b4d76d49a003bb63879f1c5, type: 3}
@@ -1939,5 +1947,3 @@ SceneRoots:
   - {fileID: 70936597}
   - {fileID: 587704151}
   - {fileID: 193561661}
-  - {fileID: 744631613}
-  - {fileID: 813875302}
